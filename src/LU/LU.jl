@@ -1,12 +1,10 @@
-export lu_decomposition
-
 using LinearAlgebra
 
-function lu_decomposition(A::Matrix)
+function LU(A::Matrix)
     m, n = size(A)
 
     if m != n
-        error("Input matrix must be square.")
+        error("A matriz precisa ser quadrada.")
     end
     
     L = zeros(m, n)
@@ -14,10 +12,9 @@ function lu_decomposition(A::Matrix)
     
     for k in 1:n
         if U[k, k] == 0
-            error("Zero pivot encountered. LU decomposition is not possible.")
+            error("Pivô nulo encontrado, a decomposição não é possível.")
         end
         
-        # Calculate multipliers and store them in the lower triangular matrix L
         L[k:end, k] = U[k:end, k] / U[k, k]
         
         for i in k+1:n
@@ -31,4 +28,21 @@ function lu_decomposition(A::Matrix)
     end
     
     return L, U
+end
+
+function solve_LU(L, U, b)
+    n = size(b, 1)
+    y = zeros(Real, n)
+
+    for i in 1:n
+        y[i] = b[i] - dot(L[i, 1:i-1], y[1:i-1])
+    end
+
+    x = zeros(n)
+
+    for i in n:-1:1
+        x[i] = (y[i] - dot(U[i, i+1:end], x[i+1:end])) / U[i, i]
+    end
+
+    return x
 end
