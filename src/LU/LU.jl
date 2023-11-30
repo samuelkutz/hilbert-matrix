@@ -38,7 +38,7 @@ function solve_LU(L, U, b)
         y[i] = b[i] - dot(L[i, 1:i-1], y[1:i-1])
     end
 
-    x = zeros(n)
+    x = zeros(Real, n)
 
     for i in n:-1:1
         x[i] = (y[i] - dot(U[i, i+1:end], x[i+1:end])) / U[i, i]
