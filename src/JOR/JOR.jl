@@ -1,8 +1,8 @@
 using LinearAlgebra
 
-function JOR(A, b, omega, max_iter, tol)
+function JOR(A, b, omega, tol=1e-7, max_iter=1000)
     n= length(b)
-    x = zeros(n)  # Initial guess
+    x = zeros(n)  
 
     for k in 1:max_iter
         x_old = copy(x)
@@ -12,9 +12,8 @@ function JOR(A, b, omega, max_iter, tol)
             x[i] = (omega / A[i, i]) * (b[i] - sigma) + (1 - omega) * x[i]
         end
 
-        # Check for convergence
         if norm(x - x_old) < tol
-            return x
+            break
         end
     end
 
