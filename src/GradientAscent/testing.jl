@@ -6,7 +6,7 @@ include("GradientAscent.jl") # gradient_ascent()
 n = 100
 H = Hilbert(n)
 b = ones(Real, n)
-max_iter = 500
+max_iter = 10000
 tol = 1e-7
 
 x = zeros(Real, n)
@@ -29,6 +29,8 @@ for iter in 1:max_iter
     end
 end
 
+println(rel_residual_norms[end])
 
-plot(1:max_iter, rel_residual_norms, xlabel="n de iterações", ylabel="Norma do resíduo relativo", title="Norma do resíduo relativo vs n de iterações", label="Norma relativa do resíduo", c=:magenta, lw=1)
+plot(1:max_iter, rel_residual_norms, xlabel="n de iterações", ylabel="Norma do resíduo relativo", title="Norma do resíduo relativo vs n de iterações", label="Norma relativa do resíduo", c=:magenta, lw=2)
+plot!(1:max_iter, tol*ones(max_iter), s=:dash, c=:grey, lw = 2, label="Tolerância")
 savefig("./src/GradientAscent/gradient_ascent_residual_norm.png")
