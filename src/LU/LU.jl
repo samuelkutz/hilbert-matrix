@@ -30,15 +30,15 @@ function LU(A::Matrix)
     return L, U
 end
 
-function solve_LU(L, U, b)
+function solve_LU(L::Matrix, U::Matrix, b::Vector)
     n = size(b, 1)
-    y = zeros(Real, n)
+    y = zeros(BigFloat, n)
 
     for i in 1:n
         y[i] = b[i] - dot(L[i, 1:i-1], y[1:i-1])
     end
 
-    x = zeros(Real, n)
+    x = zeros(BigFloat, n)
 
     for i in n:-1:1
         x[i] = (y[i] - dot(U[i, i+1:end], x[i+1:end])) / U[i, i]

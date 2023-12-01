@@ -1,5 +1,5 @@
 function Hilbert(n::Int64)
-    H = zeros(Real, n, n)
+    H = zeros(BigFloat, n, n)
     
     for i in 1:n
         for j in 1:n
