@@ -21,10 +21,10 @@ $$
 b = (1 \quad 1 \quad 1 \quad ... \quad 1)^{T}
 $$
 
-***In this implementation, we will fix the order of $n$
-to be 100.***
+- In this implementation, we will fix the order of $n$
+to be 100.
 
-   The main metric used in this project is the **Relative residual norm** given by:
+The main metric used in this project is the **Relative residual norm** given by:
 
 $$
     || r_{rel} || = \frac{|| b - Hx ||}{|| b ||} 
