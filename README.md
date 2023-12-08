@@ -57,7 +57,7 @@ Since LU is a relatively stable direct method for Symmetric Positive Definite (S
 
 Overall, this is the best method for SDP matrices. However, due to the bad conditioning of $H$, the floating-point errors acumulate so much it looks like the $H$ decomposition lose its "positiveness" or something.
 
-In order to prevent this, we can create a new aproximated matrix. We just need to add small values $\lambda$ to de diagonal of $H$ and see what reduces the relative residual norm the most:
+In order to prevent this, we can create a new aproximated matrix. We just need to add small values $\lambda$ to the diagonal of $H$ and see what reduces the relative residual norm the most:
 
 <p align="center">
     <img src="./plots/Cholesky/residual_norm_vs_lambda.png" width="450">
