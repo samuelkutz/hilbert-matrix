@@ -23,4 +23,4 @@ plot!(ns, rel_residual_norms, c=:magenta, label="Norma relativa do resíduo")
 
 plot!(ns, tol*ones(100), s=:dash, c=:grey, lw = 2, label="Tolerância")
 
-savefig("./src/LU/residual_norm_LU.png")
+savefig("./plots/LU/residual_norm_LU.png")

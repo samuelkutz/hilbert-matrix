@@ -43,4 +43,4 @@ plot(lambda_values, rel_residual_norms, xlabel="Lambda", ylabel="Norma do resíd
 
 scatter!([best_lambda], [min_residual], markersize=6, c=:cyan, marker=:diamond, label="Melhor Lambda: $best_lambda")
 
-savefig("./src/Cholesky/residual_norm_vs_lambda.png")
+savefig("./plots/Cholesky/residual_norm_vs_lambda.png")

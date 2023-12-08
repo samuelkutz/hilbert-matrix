@@ -35,4 +35,4 @@ plot(omega_values, rel_residual_norms, xlabel="Ômega", ylabel="Norma do resídu
 
 scatter!([best_omega], [min_residual], markersize=6, c=:cyan, marker=:diamond, label="Melhor Ômega: $best_omega")
 
-savefig("./src/JOR/JOR_residual_norm_vs_omega.png")
+savefig("./plots/JOR/JOR_residual_norm_vs_omega.png")

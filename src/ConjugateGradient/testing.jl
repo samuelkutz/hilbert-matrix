@@ -38,4 +38,4 @@ println(rel_residual_norms[30])
 
 plot(1:max_iter, rel_residual_norms, xlabel="n de iterações", ylabel="Norma do resíduo relativo", title="Norma do resíduo relativo vs n de iterações", label="Norma relativa do resíduo", c=:magenta, lw=2)
 plot!(1:max_iter, tol*ones(max_iter), s=:dash, c=:grey, lw = 2, label="Tolerância")
-savefig("./src/ConjugateGradient/conjugate_gradient_residual_norm.png")
+savefig("./plots/ConjugateGradient/conjugate_gradient_residual_norm.png")

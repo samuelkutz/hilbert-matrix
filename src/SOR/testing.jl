@@ -1,7 +1,7 @@
 using Plots
 
 include("../Hilbert.jl")
-include("SOR.jl")  # Assuming you have a file named "SOR.jl" with the SOR method implementation
+include("SOR.jl")
 
 n = 100
 H = Hilbert(n)
@@ -31,4 +31,4 @@ println("Minimal residual: ", min_residual)
 
 plot(omega_values, rel_residual_norms, xlabel="Ômega", ylabel="Norma do resíduo relativo", title="Norma do resíduo relativo vs Ômega", label="Norma relativa do resíduo", c=:magenta, lw=1)
 scatter!([best_omega], [min_residual], markersize=6, c=:cyan, marker=:diamond, label="Melhor Ômega: $best_omega")
-savefig("./src/SOR/SOR_residual_norm_vs_omega.png")
+savefig("./plots/SOR/SOR_residual_norm_vs_omega.png")
