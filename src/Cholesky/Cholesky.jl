@@ -27,7 +27,7 @@ function solve_chol(L, b)
     y = zeros(BigFloat, n)
 
     for i in 1:n
-        y[i] = b[i] - sum(L[i, 1:i-1] .* y[1:i-1])
+        y[i] = (b[i] - sum(L[i, 1:i-1] .* y[1:i-1])) / L[i, i]
     end
 
     x = zeros(BigFloat, n)
